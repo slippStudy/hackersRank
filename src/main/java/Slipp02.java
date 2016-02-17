@@ -14,25 +14,27 @@ public class Slipp02 {
         Map<Integer, Integer> value2Count = new HashMap<Integer, Integer>();
         Set<Integer> uniqueValueSet = new HashSet<Integer>();
 
-
         int max = 0;
 
         Deque<Integer> deque = new LinkedList<Integer>();
         for (int iCount = 0; iCount < n; iCount++) {
-
 
             int newValue = in.nextInt();
 
             Integer count;
 
             if (deque.size() == m) {
+                if(newValue == deque.peekFirst()){
+                    continue;
+                }
                 int removedValue = deque.removeFirst();
                 count = value2Count.get(removedValue);
-                if(count!=null) {
+                if (count != null) {
                     count--;
-                    value2Count.put(newValue, count);
+                    value2Count.put(removedValue, count);
                     if (count == 0) {
                         uniqueValueSet.remove(removedValue);
+                        value2Count.remove(removedValue);
                     }
                 }
             }
@@ -55,6 +57,5 @@ public class Slipp02 {
         }
 
         System.out.println(max);
-
     }
 }

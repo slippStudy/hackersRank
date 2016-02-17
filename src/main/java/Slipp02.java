@@ -24,9 +24,6 @@ public class Slipp02 {
             Integer count;
 
             if (deque.size() == m) {
-                if(newValue == deque.peekFirst()){
-                    continue;
-                }
                 int removedValue = deque.removeFirst();
                 count = value2Count.get(removedValue);
                 if (count != null) {

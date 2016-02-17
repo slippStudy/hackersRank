@@ -23,46 +23,38 @@ public class Slipp02 {
 
             int newValue = in.nextInt();
 
-            Integer count = 0;
+            Integer count;
 
             if (deque.size() == m) {
                 int removedValue = deque.removeFirst();
                 count = value2Count.get(removedValue);
                 if(count!=null) {
                     count--;
+                    value2Count.put(newValue, count);
                     if (count == 0) {
                         uniqueValueSet.remove(removedValue);
                     }
                 }
             }
 
-
             deque.addLast(newValue);
 
-
-
-
-            count = value2Count.get(newValue);
-            if (count == null) {
-                count = 0;
+            Integer newCount = value2Count.get(newValue);
+            if (newCount == null) {
+                newCount = 0;
             }
-            count++;
+            newCount++;
 
             uniqueValueSet.add(newValue);
-            value2Count.put(newValue, count);
-
-
+            value2Count.put(newValue, newCount);
 
             int uniqueCount = uniqueValueSet.size();
             if (uniqueCount > max) {
                 max = uniqueCount;
             }
-
-
         }
 
         System.out.println(max);
 
     }
-
 }

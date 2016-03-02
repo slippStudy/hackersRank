@@ -76,6 +76,20 @@ public class Slipp03 {
                         * (solve3(second) + 1
                 ) - 1L) % 100000;
 
+        // n = 1
+        // result = 1
+
+        // n = 2
+        // result = 2 * 2 - 1  =  3
+
+        // n = 3
+        // result = 2 * 4 - 1   = 7
+
+        // n = 4
+        // result = 4 * 4 - 1 = 15
+
+        // n = 5
+        // result = 4 * 8 - 1 = 31
         resultCache.put(n, result);
 
         return result;

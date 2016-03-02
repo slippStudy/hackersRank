@@ -2,6 +2,18 @@ import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
+/**
+ * <p>This class is a solve of the
+ * <a href="https://www.hackerrank.com/challenges/diwali-lights">
+ * DiwaliLights</a>.
+ *
+ * @see     IntStream
+ * @see     BigInteger
+ * @author  Daekwon Kang
+ * @author  Munsu Kim
+ * @since   JDK1.8
+ * @since   2016-03-02
+ */
 public class DiwaliLights {
 
     public static void main(String[] args) {

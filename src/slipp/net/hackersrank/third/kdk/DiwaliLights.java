@@ -7,30 +7,35 @@ import java.util.stream.IntStream;
  * <a href="https://www.hackerrank.com/challenges/diwali-lights">
  * DiwaliLights</a>.
  *
- * @see     IntStream
- * @see     BigInteger
- * @author  Daekwon Kang
- * @author  Munsu Kim
- * @since   JDK1.8
- * @since   2016-03-02
+ * @author Daekwon Kang
+ * @author Munsu Kim
+ * @see IntStream
+ * @see BigInteger
+ * @since 2016-03-02
  */
 public class DiwaliLights {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
+        int T = in.nextInt();
+        int M = 100000; // 17 bits
 
         IntStream
-                .range(0, n)
+                .range(0, T)
                 .forEach(value -> {
-                    final int t = in.nextInt();
-                    final int result = getCaseCount(t);
-                    System.out.println(result);
+                    long N = in.nextInt();
+                    long res = 1;
+                    while (N > 0) {
+                        if (N > 46) {
+                            res <<= 46;
+                            N -= 46;
+                        } else {
+                            res <<= N;
+                            N = 0;
+                        }
+                        res %= M;
+                    }
+                    System.out.println(res - 1);
                 });
-    }
-
-    private static int getCaseCount(int inputNum) {
-        final BigInteger rtv = BigInteger.valueOf(2).pow(inputNum).subtract(BigInteger.ONE);
-        return rtv.mod(BigInteger.valueOf(100000)).intValue();
     }
 }

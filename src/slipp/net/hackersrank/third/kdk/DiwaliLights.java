@@ -1,3 +1,5 @@
+package slipp.net.hackersrank.third.kdk;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.stream.IntStream;

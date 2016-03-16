@@ -45,12 +45,7 @@ public class Solution {
         for (int i = 0; i < firstLine.length(); i++) {
             String letter = String.valueOf(firstLine.charAt(i));
 
-            if (alphabetMap.containsKey(letter)) {
-                int numberOfLetter = alphabetMap.get(letter);
-                numberOfLetter = +1;
-                alphabetMap.put(letter, numberOfLetter);
-            }
-            else {
+            if (!alphabetMap.containsKey(letter)) {
                 alphabetMap.put(letter, 1);
             }
         }
